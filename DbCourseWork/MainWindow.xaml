@@ -1,0 +1,120 @@
+﻿<Window x:Class="DbCourseWork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DbCourseWork"
+        xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Database Editor" 
+        Height="680" Width="1280"
+        MinHeight="350" MinWidth="700"
+        WindowState="Maximized"
+        Name="MWindow"
+        KeyDown="ArrowPressed_OnKeyDown"
+        ShowInTaskbar="True"
+        WindowStartupLocation="Manual" Top="0" Left="0"
+        Background="#333"
+        Icon="/database.ico">
+    <DockPanel> <!-->https://professorweb.ru/my/WPF/base_WPF/level3/3_12.php<-->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="New">
+                    <MenuItem.Icon>
+                        <Path Width="16" Height="16" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource new_windowStyle0}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Open" Header="Open"/>
+                <Separator/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Save As">
+                    <MenuItem Header="JPG"/>
+                    <MenuItem Header="PNG"/>
+                    <MenuItem Header="GIF"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem IsChecked="True" Header="Checked Menu Item"/>
+                <MenuItem IsEnabled="False" Header="DisabledMenuItem"/>
+                <MenuItem IsChecked="True" IsEnabled="False" Header="MenuItem"/>
+            </MenuItem>
+            <MenuItem Header="View"/>
+            <MenuItem Header="Project"/>
+            <MenuItem Header="Disabled MenuItem" IsEnabled="False"/>
+        </Menu>
+        <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
+            <Grid>
+                <TextBox FontStyle="Italic" Padding="5,5,32,5" Width="200" Text="Найти..." HorizontalAlignment="Right"/>
+                <Grid Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,4,0">
+                    <Path Width="20.7781" Height="20.7781" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource magnifyStyle0}" />
+                </Grid>
+            </Grid>
+            
+        </StackPanel>
+        <StatusBar DockPanel.Dock="Bottom" Margin="5 3 5 3" >
+            <StatusBarItem Content="Столбец: 54"/>
+            <StatusBarItem Content="Строка: 180"/>
+            <ProgressBar Margin="10" Width="250" Height="15" Value="39" Style="{StaticResource ProgressBarPercent}"/>
+        </StatusBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.33*" MaxWidth="450"></ColumnDefinition>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TreeView Margin="5 0 0 5" DockPanel.Dock="Left" Width="Auto" FontSize="16">
+                <TreeViewItem Header="База данных 1" Expanded="TreeViewItem_Expanded">
+                    <TreeViewItem.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Редактировать" Click="EditMenuItem_OnClick"></MenuItem>
+                            <MenuItem Header="Галочка" IsCheckable="True"></MenuItem>
+                            <MenuItem Header="Удалить" Click="DeleteMenuItem_OnClick"></MenuItem>
+                        </ContextMenu>
+                    </TreeViewItem.ContextMenu>
+                    <TreeViewItem Header="Таблица 1" Selected="TreeViewItem_Selected" MouseDoubleClick="TreeViewItem_OnDoubleClick"/>
+                    <TreeViewItem Header="Таблица 2" />
+                    <TreeViewItem Header="Таблица 3" />
+                    <TreeViewItem Header="Таблица 4" />
+                </TreeViewItem>
+                <TreeViewItem Header="База Данных 2">
+                    <TreeViewItem.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Редактировать" Click="EditMenuItem_OnClick"></MenuItem>
+                            <MenuItem Header="Галочка" IsCheckable="True"></MenuItem>
+                            <MenuItem Header="Удалить" Click="DeleteMenuItem_OnClick"></MenuItem>
+                        </ContextMenu>
+                    </TreeViewItem.ContextMenu>
+                    <TreeViewItem Header="Таблица 1">
+                        <TreeViewItem Header="Атрибут 1" />
+                        <TreeViewItem Header="Атрибут 2" />
+                        <TreeViewItem Header="Атрибут 3" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Таблица 2">
+                        <TreeViewItem Header="Атрибут 1" />
+                        <TreeViewItem Header="Атрибут 2" />
+                        <TreeViewItem Header="Атрибут 3" />
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" 
+                        Grid.Column="0" FlowDirection="RightToLeft">
+                <Button Width="60" Height="30" Margin="10 10 10 15" Content="Add DB" Click="AddDb_Click"></Button>
+                <Button Width="60" Height="30" Margin="0 10 10 15" Content="Join" IsEnabled="False"></Button>
+            </StackPanel>
+            <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
+                          HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+            <DataGrid x:Name="PhonesGrid"
+                  AutoGenerateColumns="True"
+                  ItemsSource="{DynamicResource ResourceKey=Phones}"
+                  DockPanel.Dock="Right" HorizontalAlignment="Stretch"
+                  Grid.Column="2" Margin="0 0 5 5">
+                <DataGrid.Resources>
+                    <collections:ArrayList x:Key="Phones">
+                        <local:Phone Title="iPhone 6S" Company="Apple" Price="54990" />
+                        <local:Phone Title="Lumia 950" Company="Microsoft" Price="39990" />
+                        <local:Phone Title="Nexus 5X" Company="Google" Price="29990" />
+                    </collections:ArrayList>
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+    </DockPanel>
+</Window>

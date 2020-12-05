@@ -1,0 +1,1 @@
+Supported DB: PostgreSQL, MS SQL Server 2012 onwards, MySQL, SQLite 3.7 onwards
