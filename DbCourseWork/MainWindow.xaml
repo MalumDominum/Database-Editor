@@ -43,12 +43,13 @@
         </Menu>
         <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
             <Grid>
-                <TextBox FontStyle="Italic" Padding="5,5,32,5" Width="200" Text="Найти..." HorizontalAlignment="Right"/>
+                <TextBox FontStyle="Italic" Padding="5,5,32,5" Margin="5 0 0 0" Width="200" Text="Search..." HorizontalAlignment="Right"/>
                 <Grid Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,4,0">
                     <Path Width="20.7781" Height="20.7781" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource magnifyStyle0}" />
                 </Grid>
             </Grid>
-            
+            <Button x:Name="SaveChangesButton" Content="Save Changes"
+                    Click="SaveChangesButton_OnClick" Margin="10 10 0 10"></Button>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Margin="5 3 5 3" >
             <StatusBarItem Content="Столбец: 54"/>
@@ -102,16 +103,13 @@
             </StackPanel>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
                           HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-            <DataGrid x:Name="PhonesGrid"
+            <DataGrid x:Name="DataGrid"
                   AutoGenerateColumns="True"
-                  ItemsSource="{DynamicResource ResourceKey=Phones}"
+                  ItemsSource="{Binding}"
                   DockPanel.Dock="Right" HorizontalAlignment="Stretch"
                   Grid.Column="2" Margin="0 0 5 5">
                 <DataGrid.Resources>
-                    <collections:ArrayList x:Key="Phones">
-                        <local:Phone Title="iPhone 6S" Company="Apple" Price="54990" />
-                        <local:Phone Title="Lumia 950" Company="Microsoft" Price="39990" />
-                        <local:Phone Title="Nexus 5X" Company="Google" Price="29990" />
+                    <collections:ArrayList x:Key="GridCollections">
                     </collections:ArrayList>
                 </DataGrid.Resources>
             </DataGrid>
