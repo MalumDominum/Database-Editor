@@ -48,7 +48,9 @@
                     <Path Width="20.7781" Height="20.7781" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource magnifyStyle0}" />
                 </Grid>
             </Grid>
-            <Button x:Name="SaveChangesButton" Content="Save Changes"
+            <Button x:Name="ReturnChangesButton" Content="Return Changes"
+                    Click="ReturnChangesButton_OnClick" Margin="10 10 0 10" Width="90"></Button>
+            <Button x:Name="SaveChangesButton" Content="Save Changes" Width="90"
                     Click="SaveChangesButton_OnClick" Margin="10 10 0 10"></Button>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Margin="5 3 5 3" >
@@ -62,44 +64,12 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TreeView Margin="5 0 0 5" DockPanel.Dock="Left" Width="Auto" FontSize="16">
-                <TreeViewItem Header="База данных 1" Expanded="TreeViewItem_Expanded">
-                    <TreeViewItem.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Редактировать" Click="EditMenuItem_OnClick"></MenuItem>
-                            <MenuItem Header="Галочка" IsCheckable="True"></MenuItem>
-                            <MenuItem Header="Удалить" Click="DeleteMenuItem_OnClick"></MenuItem>
-                        </ContextMenu>
-                    </TreeViewItem.ContextMenu>
-                    <TreeViewItem Header="Таблица 1" Selected="TreeViewItem_Selected" MouseDoubleClick="TreeViewItem_OnDoubleClick"/>
-                    <TreeViewItem Header="Таблица 2" />
-                    <TreeViewItem Header="Таблица 3" />
-                    <TreeViewItem Header="Таблица 4" />
-                </TreeViewItem>
-                <TreeViewItem Header="База Данных 2">
-                    <TreeViewItem.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Header="Редактировать" Click="EditMenuItem_OnClick"></MenuItem>
-                            <MenuItem Header="Галочка" IsCheckable="True"></MenuItem>
-                            <MenuItem Header="Удалить" Click="DeleteMenuItem_OnClick"></MenuItem>
-                        </ContextMenu>
-                    </TreeViewItem.ContextMenu>
-                    <TreeViewItem Header="Таблица 1">
-                        <TreeViewItem Header="Атрибут 1" />
-                        <TreeViewItem Header="Атрибут 2" />
-                        <TreeViewItem Header="Атрибут 3" />
-                    </TreeViewItem>
-                    <TreeViewItem Header="Таблица 2">
-                        <TreeViewItem Header="Атрибут 1" />
-                        <TreeViewItem Header="Атрибут 2" />
-                        <TreeViewItem Header="Атрибут 3" />
-                    </TreeViewItem>
-                </TreeViewItem>
-            </TreeView>
+            <TreeView x:Name="DatabasesTreeView" Margin="5 0 0 5" 
+                      DockPanel.Dock="Left" Width="Auto" FontSize="16"></TreeView>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" 
                         Grid.Column="0" FlowDirection="RightToLeft">
-                <Button Width="60" Height="30" Margin="10 10 10 15" Content="Add DB" Click="AddDb_Click"></Button>
-                <Button Width="60" Height="30" Margin="0 10 10 15" Content="Join" IsEnabled="False"></Button>
+                <Button Width="60" Height="30" Margin="20 0 10 25" Content="Add DB" Click="AddDb_Click"></Button>
+                <Button Width="60" Height="30" Margin="0 0 0 25" Content="Join" IsEnabled="False"></Button>
             </StackPanel>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
                           HorizontalAlignment="Center" VerticalAlignment="Stretch" />
