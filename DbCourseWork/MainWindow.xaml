@@ -48,6 +48,8 @@
                     <Path Width="20.7781" Height="20.7781" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource magnifyStyle0}" />
                 </Grid>
             </Grid>
+            <DatePicker x:Name="FilterFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
+            <DatePicker x:Name="SecondFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
             <Button x:Name="ReturnChangesButton" Content="Return Changes"
                     Click="ReturnChangesButton_OnClick" Margin="10 10 0 10" Width="90"></Button>
             <Button x:Name="SaveChangesButton" Content="Save Changes" Width="90"

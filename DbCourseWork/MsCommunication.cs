@@ -1,5 +1,4 @@
-﻿using Npgsql;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,15 +10,15 @@ using System.Windows;
 
 namespace DbCourseWork
 {
-    public class DbCommunication
+    public class MsCommunication
     {
         public DataSet Ds { get; }
-        private NpgsqlDataAdapter Adapter { get; set; }
-        private NpgsqlConnectionStringBuilder ConnectionBuilder { get; set; }
+        private SqlDataAdapter Adapter { get; set; }
+        private SqlConnectionStringBuilder ConnectionBuilder { get; set; }
 
-        public DbCommunication(string dbName, string userId, string server, string port, string password)
+        public MsCommunication(string dbName, string userId, string server, string port, string password)
         {
-            ConnectionBuilder = new NpgsqlConnectionStringBuilder("Server=" + server + ";Port=" + port + ";")
+            ConnectionBuilder = new SqlConnectionStringBuilder("Server=" + server + ";Port=" + port + ";")
             {
                 {"Database", dbName},
                 {"User Id", userId}
@@ -29,29 +28,28 @@ namespace DbCourseWork
             Ds = new DataSet(dbName);
         }
 
-        public DbCommunication(ConnectionStringSettings connectionString)
+        public MsCommunication(ConnectionStringSettings connectionString)
         {
-            ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString.ConnectionString);
+            ConnectionBuilder = new SqlConnectionStringBuilder(connectionString.ConnectionString);
 
             Ds = new DataSet(connectionString.Name);
         }
 
-        public DbCommunication(string connectionString, string dbName)
+        public MsCommunication(string connectionString, string dbName)
         {
-            ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString);
+            ConnectionBuilder = new SqlConnectionStringBuilder(connectionString);
 
             Ds = new DataSet(dbName);
         }
-
         public async Task ShowOnDataGrid(DataTable table)
         {
             try
             {
-                using (var connection = new NpgsqlConnection(ConnectionBuilder.ConnectionString))
+                using (var connection = new SqlConnection(ConnectionBuilder.ConnectionString))
                 {
                     var sqlExpression = "SELECT * FROM " + table.TableName;
                     await connection.OpenAsync();
-                    Adapter = new NpgsqlDataAdapter(sqlExpression, connection);
+                    Adapter = new SqlDataAdapter(sqlExpression, connection);
                     Adapter.Fill(Ds, table.TableName);
                     MainWindow.CustomGrid.DataContext = Ds.Tables[table.TableName];
                 }
@@ -66,10 +64,10 @@ namespace DbCourseWork
         {
             try
             {
-                using (var connection = new NpgsqlConnection(ConnectionBuilder.ConnectionString))
+                using (var connection = new SqlConnection(ConnectionBuilder.ConnectionString))
                 {
                     await connection.OpenAsync();
-                    var commandBuilder = new NpgsqlCommandBuilder(Adapter);
+                    var commandBuilder = new SqlCommandBuilder(Adapter);
                     Adapter.Update(Ds);
                     Ds.Clear();
                     Adapter.Fill(Ds);
@@ -86,7 +84,7 @@ namespace DbCourseWork
         {
             try
             {
-                using (var connection = new NpgsqlConnection(ConnectionBuilder.ConnectionString))
+                using (var connection = new SqlConnection(ConnectionBuilder.ConnectionString))
                 {
                     connection.Open();
                     var sqlExpression = // Select all table names
@@ -94,7 +92,7 @@ namespace DbCourseWork
                         "FROM information_schema.tables " +
                         "WHERE table_schema = 'public' " +
                         "AND table_type = 'BASE TABLE'";
-                    var command = new NpgsqlCommand(sqlExpression, connection);
+                    var command = new SqlCommand(sqlExpression, connection);
                     var reader = command.ExecuteReader();
 
                     var tableNames = new List<string>();

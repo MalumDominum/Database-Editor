@@ -16,6 +16,11 @@ namespace DbCourseWork
 {
     public partial class AddDbWindow : Window
     {
+        public string Server => ServerBox.Text;
+        public string Port => PortBox.Text;
+        public string Database => DatabaseBox.Text;
+        public string User => UserBox.Text;
+        public string Password => PasswordBox.Password;
         public AddDbWindow()
         {
             InitializeComponent();
@@ -25,6 +30,5 @@ namespace DbCourseWork
         {
             this.DialogResult = true;
         }
-        public string Password => PasswordBox.Password;
     }
 }

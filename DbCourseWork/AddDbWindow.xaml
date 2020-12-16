@@ -5,24 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DbCourseWork"
         mc:Ignorable="d"
-        Title="Add Database" Height="300" Width="400" 
+        Title="Add Database" Height="380" Width="380" 
         Icon="./database.ico" Background="#333"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="10">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" Margin="0 5 0 0" Foreground="#FF32EBFB">Введите пароль:</TextBlock>
-        <PasswordBox Name="PasswordBox" Grid.Row="1" Password="12345678" ToolTip="PasswordBox" Width="200"/>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"
+                   Margin="0 5 0 8" Foreground="#FF32EBFB">Server name:</TextBlock>
+        <TextBox Name="ServerBox" HorizontalAlignment="Right" Grid.Row="0" Width="200"/>
 
-        <WrapPanel Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-            <Button Name="AcceptButton"
-                    IsDefault="True" Click="Accept_Click" 
-                    Height="35" Width="60" Margin="0,0,10,0">OК</Button>
-            <Button IsCancel="True" Height="35" Width="60">Отмена</Button>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"
+                   Margin="67 5 0 5" Foreground="#FF32EBFB">Port:</TextBlock>
+        <TextBox Name="PortBox" HorizontalAlignment="Right" Grid.Row="1" Width="200"/>
+
+        <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"
+                   Margin="25 5 0 5" Foreground="#FF32EBFB">Database:</TextBlock>
+        <TextBox Name="DatabaseBox" HorizontalAlignment="Right" Grid.Row="2" Width="200"/>
+
+        <TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"
+                   Margin="64 5 0 5" Foreground="#FF32EBFB">User:</TextBlock>
+        <TextBox Name="UserBox" HorizontalAlignment="Right" Grid.Row="3" Width="200"/>
+
+        <TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"
+                   Margin="25 5 0 5" Foreground="#FF32EBFB">Password:</TextBlock>
+        <PasswordBox Name="PasswordBox" Grid.Row="4" HorizontalAlignment="Right"
+                     ToolTip="PasswordBox" Width="200"/>
+
+        <WrapPanel Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Name="AcceptButton" IsDefault="True" Click="Accept_Click" 
+                    Height="35" Width="90" Margin="0 0 20 0">OК</Button>
+            <Button IsCancel="True" Height="35" Width="90">Отмена</Button>
         </WrapPanel>
     </Grid>
 </Window>

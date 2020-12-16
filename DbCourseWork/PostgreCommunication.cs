@@ -11,13 +11,13 @@ using System.Windows;
 
 namespace DbCourseWork
 {
-    public class DbCommunication
+    public class PostgreCommunication
     {
         public DataSet Ds { get; }
         private NpgsqlDataAdapter Adapter { get; set; }
         private NpgsqlConnectionStringBuilder ConnectionBuilder { get; set; }
 
-        public DbCommunication(string dbName, string userId, string server, string port, string password)
+        public PostgreCommunication(string dbName, string userId, string server, string port, string password)
         {
             ConnectionBuilder = new NpgsqlConnectionStringBuilder("Server=" + server + ";Port=" + port + ";")
             {
@@ -29,14 +29,14 @@ namespace DbCourseWork
             Ds = new DataSet(dbName);
         }
 
-        public DbCommunication(ConnectionStringSettings connectionString)
+        public PostgreCommunication(ConnectionStringSettings connectionString)
         {
             ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString.ConnectionString);
 
             Ds = new DataSet(connectionString.Name);
         }
 
-        public DbCommunication(string connectionString, string dbName)
+        public PostgreCommunication(string connectionString, string dbName)
         {
             ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString);
 

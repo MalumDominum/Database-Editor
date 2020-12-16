@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -21,23 +22,39 @@ namespace DbCourseWork
 {
     public partial class MainWindow : Window
     {
+        enum SqlServer { MsSql, PostgreSql }
         public static DataGrid CustomGrid { get; private set; }
-        public static Dictionary<string, DbCommunication> Communications { get; private set; } = new Dictionary<string, DbCommunication>();
-        public DataTable CurrentTable { get; set; }
+        private static Dictionary<string, PostgreCommunication> PostgreCommunications { get; set; } = new Dictionary<string, PostgreCommunication>();
+        private static Dictionary<string, MsCommunication> MsCommunications { get; set; } = new Dictionary<string, MsCommunication>();
+        private static SqlServer CurrentServer { get; set; }
+        private static DataTable CurrentTable { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             CustomGrid = DataGrid;
-            Communications.Add("streamingservice", new DbCommunication("streamingservice","postgres",
-                "localhost", "5433", "c788f928bd244746ae0ca3c79c3488a8"));
-            Communications["streamingservice"].FillDs();
 
-            FillTreeView(DatabasesTreeView, Communications["streamingservice"]);
+            var connectionStrings = ConfigurationManager.ConnectionStrings;
+            foreach (ConnectionStringSettings connectionString in connectionStrings)
+            {
+                switch (connectionString.ProviderName)
+                {
+                    case "PostgreSQL":
+                        PostgreCommunications.Add(connectionString.Name, new PostgreCommunication(connectionString));
+                        PostgreCommunications[connectionString.Name].FillDs();
+                        FillTreeView(DatabasesTreeView, PostgreCommunications[connectionString.Name]);
+                        break;
+                    case "MS SQL":
+                        MsCommunications.Add(connectionString.Name, new MsCommunication(connectionString));
+                        MsCommunications[connectionString.Name].FillDs();
+                        FillTreeView(DatabasesTreeView, MsCommunications[connectionString.Name]);
+                        break;
+                }
+            }
         }
 
         private void SaveChangesButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Communications["streamingservice"].UpdateDb(CurrentTable).GetAwaiter();
+            PostgreCommunications[CurrentTable.TableName].UpdateDb(CurrentTable).GetAwaiter();
         }
 
         private void ReturnChangesButton_OnClick(object sender, RoutedEventArgs e)
@@ -55,24 +72,17 @@ namespace DbCourseWork
 
         }
 
-        private void TreeViewItem_Expanded(object sender, RoutedEventArgs e)
-        {
-            // Обновление таблиц
-        }
-
-        private void TreeViewItem_OnDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            // Вывод таблицы на экран
-        }
-
         private void AddDb_Click(object sender, RoutedEventArgs e)
         {
             var addDbWindow = new AddDbWindow();
 
-            if (addDbWindow.ShowDialog() == true)
-                MessageBox.Show(addDbWindow.Password == "12345678" ? "Авторизация пройдена" : "Неверный пароль");
-            else
-                MessageBox.Show("Авторизация не пройдена");
+            if (addDbWindow.ShowDialog() == false) return;
+
+            var communication = 
+                new PostgreCommunication(addDbWindow.Database, addDbWindow.User,
+                    addDbWindow.Server, addDbWindow.Port,addDbWindow.Password);
+
+            PostgreCommunications.Add(addDbWindow.Database, communication);
         }
 
         private void EditMenuItem_OnClick(object sender, RoutedEventArgs e)
@@ -85,7 +95,7 @@ namespace DbCourseWork
 
         }
 
-        private void FillTreeView(TreeView treeView, DbCommunication communication)
+        private void FillTreeView(TreeView treeView, MsCommunication communication)
         {
             var dbContextMenu = new ContextMenu();
             var dbRefreshItem = new MenuItem { Header = "Refresh" };
@@ -106,10 +116,79 @@ namespace DbCourseWork
             tableViewAllItem.Click += ViewFirst_Click;
             tableContextMenu.Items.Add(tableViewFirstItem);
 
-            var tableViewLastItem = new MenuItem 
-            { 
+            var tableViewLastItem = new MenuItem
+            {
                 Header = "View last 100 rows",
-                CommandParameter = 
+                CommandParameter =
+                    "{ Binding PlacementTarget," +
+                      "RelativeSource=" +
+                      "{" +
+                         "RelativeSource FindAncestor," +
+                         "AncestorType = { x:Type ContextMenu }" +
+                    "}}"
+            };
+            tableViewAllItem.Click += ViewLast_Click;
+            tableContextMenu.Items.Add(tableViewLastItem);
+
+            var tableViewFilteredItem = new MenuItem { Header = "View filter options" };
+            tableViewAllItem.Click += ViewFiltered_Click;
+            tableContextMenu.Items.Add(tableViewFilteredItem);
+
+            /*var columnContextMenu = new ContextMenu();
+            var columnMenuItem = new MenuItem { Header = "" };
+            //attributeMenuItem.Click += AttributeMenuItem_Click;
+            columnContextMenu.Items.Add(columnMenuItem);*/
+
+
+            var dbView = new TreeViewItem
+            {
+                Header = communication.Ds.DataSetName,
+                ContextMenu = dbContextMenu
+            };
+            treeView.Items.Add(dbView);
+
+            foreach (DataTable table in communication.Ds.Tables)
+            {
+                var tableView = new TreeViewItem
+                {
+                    Header = table.TableName,
+                    ContextMenu = tableContextMenu
+                };
+                dbView.Items.Add(tableView);
+
+                foreach (DataColumn column in table.Columns)
+                {
+                    var columnView = new TreeViewItem { Header = column.ColumnName };
+                    tableView.Items.Add(columnView);
+                }
+            }
+        }
+
+        private void FillTreeView(TreeView treeView, PostgreCommunication communication)
+        {
+            var dbContextMenu = new ContextMenu();
+            var dbRefreshItem = new MenuItem { Header = "Refresh" };
+            dbRefreshItem.Click += DbMenuItem_Refresh;
+            dbContextMenu.Items.Add(dbRefreshItem);
+
+            var dbDisconnectItem = new MenuItem { Header = "Disconnect" };
+            dbDisconnectItem.Click += DbMenuItem_Disconnect;
+            dbContextMenu.Items.Add(dbDisconnectItem);
+
+
+            var tableContextMenu = new ContextMenu();
+            var tableViewAllItem = new MenuItem { Header = "View all rows" };
+            tableViewAllItem.Click += ViewAll_Click;
+            tableContextMenu.Items.Add(tableViewAllItem);
+
+            var tableViewFirstItem = new MenuItem { Header = "View first 100 rows" };
+            tableViewAllItem.Click += ViewFirst_Click;
+            tableContextMenu.Items.Add(tableViewFirstItem);
+
+            var tableViewLastItem = new MenuItem
+            {
+                Header = "View last 100 rows",
+                CommandParameter =
                     "{ Binding PlacementTarget," +
                       "RelativeSource=" +
                       "{" +
@@ -166,18 +245,18 @@ namespace DbCourseWork
 
         private void ViewAll_Click(object sender, RoutedEventArgs e)
         {
-            if (!(e.OriginalSource is MenuItem menuItem)) return;
+            if (!(sender is MenuItem menuItem)) return;
             MessageBox.Show("1");
-            if (!(menuItem.CommandParameter is ContextMenu contextMenu)) return;
+            if (!(menuItem.Parent is ContextMenu contextMenu)) return;
             MessageBox.Show("2");
             if (!(contextMenu.PlacementTarget is TreeViewItem viewItem)) return;
-
+            MessageBox.Show("3");
             var parentControl = GetTreeViewItemParent(viewItem);
             var parentView = parentControl as TreeViewItem;
 
             var dbHeader = parentView.Header.ToString();
-            CurrentTable = Communications[dbHeader].Ds.Tables[viewItem.Header.ToString()];
-            Communications[dbHeader].ShowOnDataGrid(CurrentTable).GetAwaiter();
+            CurrentTable = PostgreCommunications[dbHeader].Ds.Tables[viewItem.Header.ToString()];
+            PostgreCommunications[dbHeader].ShowOnDataGrid(CurrentTable).GetAwaiter();
         }
 
         private void ViewFirst_Click(object sender, RoutedEventArgs e)
