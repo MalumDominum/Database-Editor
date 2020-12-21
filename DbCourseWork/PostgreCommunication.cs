@@ -209,7 +209,6 @@ namespace DbCourseWork
                             table.Columns.Add(column);
                         }
 
-
                         Ds.Tables.Add(table);
 
                         reader.Close();

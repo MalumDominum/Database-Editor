@@ -16,8 +16,9 @@
         WindowStartupLocation="Manual" Top="0" Left="0"
         Background="#333"
         Icon="/database.ico">
-    <DockPanel> <!-->https://professorweb.ru/my/WPF/base_WPF/level3/3_12.php<-->
-        <Menu DockPanel.Dock="Top">
+    <!-->https://professorweb.ru/my/WPF/base_WPF/level3/3_12.php<-->
+    <DockPanel>
+        <!--><Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New">
                     <MenuItem.Icon>
@@ -40,17 +41,26 @@
             <MenuItem Header="View"/>
             <MenuItem Header="Project"/>
             <MenuItem Header="Disabled MenuItem" IsEnabled="False"/>
-        </Menu>
+        </Menu><-->
         <StackPanel Height="50" DockPanel.Dock="Top" Orientation="Horizontal">
-            <Grid>
-                <TextBox FontStyle="Italic" Padding="5,5,32,5" Margin="5 0 0 0" Width="200" Text="Search..." HorizontalAlignment="Right"/>
+            <Grid x:Name="BaseSearchElement" Visibility="Collapsed">
+                <TextBox x:Name="BaseSearchTextBox" FontStyle="Italic" Padding="5,5,32,5" Margin="5 0 0 0" Width="205" 
+                         HorizontalAlignment="Right" TextChanged="BaseSearchTextBox_OnTextChanged"/>
                 <Grid Height="28" Width="28" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,4,0">
                     <Path Width="20.7781" Height="20.7781" Stretch="Fill" Fill="{StaticResource FillPath}" Data="{StaticResource magnifyStyle0}" />
                 </Grid>
             </Grid>
-            <DatePicker x:Name="FilterFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
-            <DatePicker x:Name="SecondFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
-            <ComboBox x:Name="ColumnsComboBox" Margin="10 0 0 0" Height="30" Width="94" IsEnabled="False"/>
+            <DatePicker x:Name="FilterFirstDate" Visibility="Collapsed" Margin="10 0 0 0" Height="26" Width="95"
+                        SelectedDateChanged="FilterFirstDate_OnSelectedDateChanged"/>
+            <DatePicker x:Name="FilterSecondDate" Visibility="Collapsed" Margin="10 0 0 0" Height="26" Width="95"
+                        SelectedDateChanged="FilterSecondDate_OnSelectedDateChanged"/>
+
+            <TextBox x:Name="FilterFirstInterval" Visibility="Collapsed" Margin="10 0 0 0" Height="26" Width="95"
+                     TextChanged="FilterFirstInterval_OnTextChanged"/>
+            <TextBox x:Name="FilterSecondInterval" Visibility="Collapsed" Margin="10 0 0 0" Height="26" Width="95"
+                     TextChanged="FilterSecondInterval_OnTextChanged"/>
+            <ComboBox x:Name="ColumnsComboBox" Margin="10 0 0 0" Height="30" Width="94"
+                      IsEnabled="False" SelectionChanged="ColumnsComboBox_SelectionChanged"/>
 
             <Button x:Name="ReturnChangesButton" Content="Return Changes" IsEnabled="False"
                     Click="ReturnChangesButton_OnClick" Margin="10 10 0 10" Width="90"></Button>
@@ -82,13 +92,14 @@
                 <TextBlock x:Name="RowsPerPageTextBlock" Foreground="{StaticResource DisabledForeground2}"
                            FontSize="12">Rows per page</TextBlock>
                 <TextBox x:Name="RowsPerPageTextBox" Height="25" Width="50" FontSize="12" Margin="0 2 0 0" IsEnabled="False"
-                         HorizontalContentAlignment="Center" TextChanged="RowsPerPageTextBox_TextChanged">22</TextBox>
+                         HorizontalContentAlignment="Center" TextChanged="RowsPerPageTextBox_TextChanged">20</TextBox>
             </StackPanel>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Margin="5 3 5 3" >
-            <StatusBarItem Content="Столбец: 54"/>
-            <StatusBarItem Content="Строка: 180"/>
-            <ProgressBar Margin="10" Width="250" Height="15" Value="39" Style="{StaticResource ProgressBarPercent}"/>
+            <StatusBarItem Content="{Binding ElementName=DataTableGrid, Path=Columns.Count}" ContentStringFormat="{}Columns: {0}"/>
+            <StatusBarItem Content="{Binding ElementName=DataTableGrid, Path=Items.Count}" ContentStringFormat="{}Rows: {0}"/>
+            <StatusBarItem x:Name="SelectedRowBarItem" Content=""/>
+            <!--<ProgressBar Margin="10" Width="250" Height="15" Value="39" Style="{StaticResource ProgressBarPercent}"/> -->
         </StatusBar>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -105,11 +116,11 @@
             </StackPanel>
             <GridSplitter Grid.Column="1" ShowsPreview="False" Width="3"
                           HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-            <DataGrid x:Name="DataGrid"
+            <DataGrid x:Name="DataTableGrid"
                   AutoGenerateColumns="True"
                   ItemsSource="{Binding}"
                   DockPanel.Dock="Right" HorizontalAlignment="Stretch"
-                  Grid.Column="2" Margin="0 0 5 5">
+                  Grid.Column="2" Margin="0 0 5 5" SelectionChanged="DataTableGrid_SelectionChanged">
                 <DataGrid.Resources>
                     <collections:ArrayList x:Key="GridCollections">
                     </collections:ArrayList>

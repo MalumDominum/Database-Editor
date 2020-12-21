@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -35,6 +36,7 @@ namespace DbCourseWork
                 [typeof(double)] = NpgsqlDbType.Numeric,
                 [typeof(TimeSpan)] = NpgsqlDbType.Time
             };
+
 
             PostgreTypeToType = new Dictionary<string, Type>
             {
@@ -136,5 +138,6 @@ namespace DbCourseWork
 
             throw new ArgumentException($"{typeString} is not a supported .NET class");
         }
+
     }
 }

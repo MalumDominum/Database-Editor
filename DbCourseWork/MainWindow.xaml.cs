@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
 using Npgsql;
 
 namespace DbCourseWork
@@ -34,7 +24,7 @@ namespace DbCourseWork
         public MainWindow()
         {
             InitializeComponent();
-            CustomGrid = DataGrid;
+            CustomGrid = DataTableGrid;
 
             var connectionStrings = ConfigurationManager.ConnectionStrings;
             foreach (ConnectionStringSettings connectionString in connectionStrings)
@@ -116,6 +106,7 @@ namespace DbCourseWork
                     settings[addDbWindow.Database].ProviderName = "PostgreSQL";
 
                     PostgreCommunications.Add(addDbWindow.Database, communication);
+                    PostgreCommunications[addDbWindow.Database].FillDs();
 
                     BuildTreeView(DatabasesTreeView, communication);
                 }
@@ -128,6 +119,7 @@ namespace DbCourseWork
 
                     PostgreCommunications.Remove(addDbWindow.Database);
                     PostgreCommunications.Add(addDbWindow.Database, communication);
+                    PostgreCommunications[addDbWindow.Database].FillDs();
 
                     RemoveTreeView(DatabasesTreeView, addDbWindow.Database);
                     BuildTreeView(DatabasesTreeView, communication);
@@ -294,6 +286,7 @@ namespace DbCourseWork
             SaveChangesButton.IsEnabled = true;
             ReturnChangesButton.IsEnabled = true;
             PaginationComboBox.IsEnabled = true;
+            ColumnsComboBox.IsEnabled = true;
         }
 
         private void View(object sender, bool useLimit = false, int limit = 0, bool desc = false)
@@ -314,15 +307,24 @@ namespace DbCourseWork
 
             var dbHeader = (TextBlock) parentStack.Children[1];
             var tableHeader = (TextBlock) stack.Children[1];
-            var currentTable = PostgreCommunications[dbHeader.Text].Ds.Tables[tableHeader.Text];
-            
+            CurrentTable = PostgreCommunications[dbHeader.Text].Ds.Tables[tableHeader.Text];
+            var currentTable = CurrentTable.Copy();
+
             if (!useLimit) PostgreCommunications[dbHeader.Text].ShowOnDataGridAsync(currentTable).GetAwaiter();
             else PostgreCommunications[dbHeader.Text].ShowOnDataGridAsync(currentTable, limit, desc).GetAwaiter();
-            CurrentTable = currentTable.Copy();
 
             PageTextBox.Text = "1";
-            PageCountTextBlock.Text = Convert.ToInt32(RowsPerPageTextBox.Text) > CurrentTable.Rows.Count ? 
-                "1" : (CurrentTable.Rows.Count / Convert.ToInt32(RowsPerPageTextBox.Text)).ToString();
+            PageCountTextBlock.Text = ((CurrentTable.Rows.Count / Convert.ToInt32(RowsPerPageTextBox.Text)) + 1).ToString();
+
+            if (PaginationComboBox.IsChecked != null && (bool) PaginationComboBox.IsChecked)
+                TurnOverPage(0);
+
+            var list = new ObservableCollection<string>();
+            foreach (DataColumn column in CurrentTable.Columns)
+                list.Add(column.ColumnName);
+            ColumnsComboBox.ItemsSource = list;
+
+            VisibilitySearchElementsChange(Visibility.Collapsed);
         }
 
         private void PaginationPreviousButton_Click(object sender, RoutedEventArgs e)
@@ -357,20 +359,22 @@ namespace DbCourseWork
             for (int i = 0; i < rowsPerPage; i++)
             {
                 var newRow = pagedTable.NewRow();
-                newRow.ItemArray = CurrentTable.Rows[result * pagesCount + i].ItemArray;
+                var number = (result - 1) * rowsPerPage + i;
+                if (number >= CurrentTable.Rows.Count) continue;
+                newRow.ItemArray = CurrentTable.Rows[number].ItemArray;
 
                 pagedTable.Rows.Add(newRow);
             }
 
-            DataGrid.DataContext = pagedTable;
+            DataTableGrid.DataContext = pagedTable;
         }
 
         private void RowsPerPageTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                PageCountTextBlock.Text = Convert.ToInt32(RowsPerPageTextBox.Text) > CurrentTable.Rows.Count ?
-                    "/1" : (CurrentTable.Rows.Count / Convert.ToInt32(RowsPerPageTextBox.Text)).ToString();
+                PageCountTextBlock.Text = ((CurrentTable.Rows.Count / Convert.ToInt32(RowsPerPageTextBox.Text)) + 1).ToString();
+                TurnOverPage(0);
             }
             catch
             {
@@ -380,17 +384,32 @@ namespace DbCourseWork
 
         private void PageTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            try
+            {
+                TurnOverPage(0);
+            }
+            catch
+            {
+                // ignore
+            }
         }
 
         private void PaginationComboBox_Checked(object sender, RoutedEventArgs e)
         {
             EnableElementsOnView(true);
+            ReturnChangesButton.IsEnabled = false;
+            SaveChangesButton.IsEnabled = false;
+            CustomGrid.CanUserAddRows = false;
+            TurnOverPage(0);
         }
 
         private void PaginationComboBox_OnUnchecked(object sender, RoutedEventArgs e)
         {
             EnableElementsOnView(false);
+            ReturnChangesButton.IsEnabled = true;
+            SaveChangesButton.IsEnabled = true;
+            CustomGrid.CanUserAddRows = true;
+            DataTableGrid.DataContext = CurrentTable;
         }
 
         private void EnableElementsOnView(bool enable)
@@ -410,6 +429,252 @@ namespace DbCourseWork
                 RowsPerPageTextBlock.Foreground = (SolidColorBrush)FindResource("DisabledForeground2");
                 PageCountTextBlock.Foreground = (SolidColorBrush)FindResource("DisabledForeground2");
                 InclinedTextBlock.Foreground = (SolidColorBrush)FindResource("DisabledForeground2");
+            }
+        }
+
+        private void ColumnsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VisibilitySearchElementsChange(Visibility.Collapsed);
+            var columnName = ((ComboBox) sender).SelectedItem as string;
+            DataColumn currentColumn = null;
+            foreach (DataColumn column in CurrentTable.Columns)
+                if (column.ColumnName == columnName)
+                    currentColumn = column;
+
+            switch (currentColumn?.DataType.Name)
+            {
+                case "DateTime":
+                    FilterFirstDate.Visibility = Visibility.Visible;
+                    FilterSecondDate.Visibility = Visibility.Visible;
+                    break;
+                case "TimeSpan":
+                    FilterFirstInterval.Visibility = Visibility.Visible;
+                    FilterSecondInterval.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    BaseSearchElement.Visibility = Visibility.Visible;
+                    break;
+            }
+        }
+
+        private void VisibilitySearchElementsChange(Visibility visibility)
+        {
+            ColumnsComboBox.Text = "";
+            BaseSearchElement.Visibility = visibility;
+            FilterFirstDate.Visibility = visibility;
+            FilterSecondDate.Visibility = visibility;
+            FilterFirstInterval.Visibility = visibility;
+            FilterSecondInterval.Visibility = visibility;
+            BaseSearchTextBox.Text = "";
+            FilterFirstDate.Text = "";
+            FilterSecondDate.Text = "";
+            FilterFirstInterval.Text = "";
+            FilterSecondInterval.Text = "";
+        }
+
+        private void BasicSearch(string text)
+        {
+            if (text == "")
+            {
+                CustomGrid.DataContext = CurrentTable;
+                return;
+            }
+
+            var currentColumnIndex = 0;
+            for (int i = 0; i < CurrentTable.Columns.Count; i++)
+                if (CurrentTable.Columns[i].ColumnName == ColumnsComboBox.Text)
+                    currentColumnIndex = i;
+
+            var foundedRows = CurrentTable.Select()
+                .Where(r => r.ItemArray[currentColumnIndex].ToString().Contains(text));
+
+            var afterSearchTable = CurrentTable.Clone();
+            foreach (var row in foundedRows)
+            {
+                var newRow = afterSearchTable.NewRow();
+                newRow.ItemArray = row.ItemArray;
+                afterSearchTable.Rows.Add(newRow);
+            }
+
+            CustomGrid.DataContext = afterSearchTable;
+        }
+        private void BaseSearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            BasicSearch(((TextBox)sender).Text);
+        }
+
+        private void FilterFirstDate_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var text = ((DatePicker)sender).Text;
+            if (text == "" && FilterSecondDate.Text == "")
+            {
+                CustomGrid.DataContext = CurrentTable;
+                return;
+            }
+            if (FilterSecondDate.Text == "")
+            {
+                BasicSearch(((DatePicker)sender).Text);
+                return;
+            }
+
+            var currentColumnIndex = 0;
+            for (int i = 0; i < CurrentTable.Columns.Count; i++)
+                if (CurrentTable.Columns[i].ColumnName == ColumnsComboBox.Text)
+                    currentColumnIndex = i;
+
+            try
+            {
+                var foundedRows = CurrentTable.Select()
+                    .Where(r => Convert.ToDateTime(r.ItemArray[currentColumnIndex]) >= Convert.ToDateTime(text) &&
+                                Convert.ToDateTime(r.ItemArray[currentColumnIndex]) <= Convert.ToDateTime(FilterSecondDate.Text));
+
+                var afterSearchTable = CurrentTable.Clone();
+                foreach (DataRow row in foundedRows)
+                {
+                    var newRow = afterSearchTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    afterSearchTable.Rows.Add(newRow);
+                }
+
+                CustomGrid.DataContext = afterSearchTable;
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+        private void FilterSecondDate_OnSelectedDateChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
+        {
+            var text = ((DatePicker)sender).Text;
+            if (text == "" && FilterFirstDate.Text == "")
+            {
+                CustomGrid.DataContext = CurrentTable;
+                return;
+            }
+            if (FilterFirstDate.Text == "")
+            {
+                BasicSearch(((DatePicker)sender).Text);
+                return;
+            }
+
+            var currentColumnIndex = 0;
+            for (int i = 0; i < CurrentTable.Columns.Count; i++)
+                if (CurrentTable.Columns[i].ColumnName == ColumnsComboBox.Text)
+                    currentColumnIndex = i;
+
+            try
+            {
+                var foundedRows = CurrentTable.Select()
+                    .Where(r => Convert.ToDateTime(r.ItemArray[currentColumnIndex]) <= Convert.ToDateTime(text) &&
+                                Convert.ToDateTime(r.ItemArray[currentColumnIndex]) >= Convert.ToDateTime(FilterFirstDate.Text));
+
+                var afterSearchTable = CurrentTable.Clone();
+                foreach (DataRow row in foundedRows)
+                {
+                    var newRow = afterSearchTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    afterSearchTable.Rows.Add(newRow);
+                }
+
+                CustomGrid.DataContext = afterSearchTable;
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+
+        private void FilterFirstInterval_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var text = ((TextBox)sender).Text;
+            if (text == "" && FilterSecondInterval.Text == "")
+            {
+                CustomGrid.DataContext = CurrentTable;
+                return;
+            }
+            if (FilterSecondInterval.Text == "")
+            {
+                BasicSearch(((TextBox)sender).Text);
+                return;
+            }
+
+            var currentColumnIndex = 0;
+            for (int i = 0; i < CurrentTable.Columns.Count; i++)
+                if (CurrentTable.Columns[i].ColumnName == ColumnsComboBox.Text)
+                    currentColumnIndex = i;
+
+            try
+            {
+                var foundedRows = CurrentTable.Select()
+                    .Where(r => TimeSpan.Parse(r.ItemArray[currentColumnIndex].ToString()) >= TimeSpan.Parse(text) &&
+                                TimeSpan.Parse(r.ItemArray[currentColumnIndex].ToString()) <= TimeSpan.Parse(FilterSecondInterval.Text));
+
+                var afterSearchTable = CurrentTable.Clone();
+                foreach (DataRow row in foundedRows)
+                {
+                    var newRow = afterSearchTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    afterSearchTable.Rows.Add(newRow);
+                }
+
+                CustomGrid.DataContext = afterSearchTable;
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+
+        private void FilterSecondInterval_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var text = ((TextBox)sender).Text;
+            if (text == "" && FilterFirstInterval.Text == "")
+            {
+                CustomGrid.DataContext = CurrentTable;
+                return;
+            }
+            if (FilterFirstInterval.Text == "")
+            {
+                BasicSearch(((TextBox)sender).Text);
+                return;
+            }
+
+            var currentColumnIndex = 0;
+            for (int i = 0; i < CurrentTable.Columns.Count; i++)
+                if (CurrentTable.Columns[i].ColumnName == ColumnsComboBox.Text)
+                    currentColumnIndex = i;
+
+            try
+            {
+                var foundedRows = CurrentTable.Select()
+                    .Where(r => TimeSpan.Parse(r.ItemArray[currentColumnIndex].ToString()) <= TimeSpan.Parse(text) &&
+                                TimeSpan.Parse(r.ItemArray[currentColumnIndex].ToString()) >= TimeSpan.Parse(FilterFirstInterval.Text));
+
+                var afterSearchTable = CurrentTable.Clone();
+                foreach (DataRow row in foundedRows)
+                {
+                    var newRow = afterSearchTable.NewRow();
+                    newRow.ItemArray = row.ItemArray;
+                    afterSearchTable.Rows.Add(newRow);
+                }
+
+                CustomGrid.DataContext = afterSearchTable;
+            }
+            catch
+            {
+                // ignore
+            }
+        }
+        private void DataTableGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var selectedItem = ((DataRowView)DataTableGrid.SelectedItem).Row;
+                SelectedRowBarItem.Content = "Selected row: " + selectedItem.Table.Rows.IndexOf(selectedItem);
+            }
+            catch
+            {
+                SelectedRowBarItem.Content = "";
             }
         }
     }
