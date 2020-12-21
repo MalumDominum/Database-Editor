@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="_x31__x2C_5" Width="22" Height="22" Canvas.Left="0" Canvas.Top="0">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources/>
+  <!--Unknown tag: metadata-->
+  <!--Unknown tag: sodipodi:namedview-->
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path14" Fill="#000000" StrokeThickness="0.0644405" Data="M 21.31049 7.56532 H 0.68951 V 2.52607 c 0 -1.01172 0.8184 -1.83011 1.83012 -1.83011 h 16.9543 c 1.01172 0 1.83011 0.81839 1.83011 1.83011 v 5.03925 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path16" Fill="#000000" StrokeThickness="0.0644405" Data="m 0.68951 7.56532 h 20.62098 v 6.8758 H 0.68951 Z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path18" Fill="#000000" StrokeThickness="0.0644405" Data="M 19.48037 21.31049 H 2.51963 c -1.01172 0 -1.83012 -0.8184 -1.83012 -1.83012 v -5.03925 h 20.62098 v 5.03925 c 0 1.01172 -0.8184 1.83012 -1.83012 1.83012 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path20" Fill="#000000" StrokeThickness="0.0644405" Data="M 4.58172 0.68951 H 2.51963 c -1.01172 0 -1.83012 0.8184 -1.83012 1.83012 v 5.03925 h 2.0621 V 2.51963 c 0 -1.01172 0.8184 -1.83012 1.83011 -1.83012 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path22" Fill="#000000" StrokeThickness="0.0644405" Data="m 2.75161 19.48037 v -5.03925 h -2.0621 v 5.03925 c 0 1.01172 0.8184 1.83012 1.83012 1.83012 h 2.06209 c -1.01171 0 -1.83011 -0.8184 -1.83011 -1.83012 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path24" Fill="#000000" StrokeThickness="0.0644405" Data="m 0.68951 7.56532 h 2.0621 v 6.8758 h -2.0621 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path26" Fill="#000000" StrokeThickness="0.0644405" Data="M 21.31049 8.24839 H 0.68951 C 0.30931 8.24839 0 7.93907 0 7.55888 V 2.51963 C 0 1.12771 1.12771 0 2.51963 0 h 16.9543 c 1.39192 0 2.51963 1.12771 2.51963 2.51963 v 5.03925 c 0.006 0.38664 -0.30287 0.68951 -0.68307 0.68951 z M 1.37903 6.87581 H 20.62742 V 2.51963 c 0 -0.63152 -0.51553 -1.14705 -1.14705 -1.14705 H 2.51963 c -0.63152 0 -1.14705 0.51553 -1.14705 1.14705 v 4.35618 z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path28" Fill="#000000" StrokeThickness="0.0644405" Data="M 21.31049 15.12419 H 0.68951 C 0.30931 15.12419 0 14.81488 0 14.43468 V 7.56532 C 0 7.18512 0.30931 6.87581 0.68951 6.87581 H 21.31049 C 21.69069 6.87581 22 7.18512 22 7.56532 v 6.8758 c 0 0.37376 -0.30931 0.68307 -0.68951 0.68307 z M 1.37903 13.75161 H 20.62742 V 8.25483 H 1.37903 Z"/>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path30" Fill="#000000" StrokeThickness="0.0644405" Data="M 19.48037 22 H 2.51963 C 1.12771 22 0 20.87229 0 19.48037 v -5.03925 c 0 -0.38019 0.30931 -0.68951 0.68951 -0.68951 h 20.62098 c 0.3802 0 0.68951 0.30932 0.68951 0.68951 v 5.03925 C 22 20.86585 20.86585 22 19.48037 22 Z M 1.37903 15.12419 v 4.35618 c 0 0.63152 0.51552 1.14705 1.14704 1.14705 h 16.9543 c 0.63152 0 1.14705 -0.51553 1.14705 -1.14705 v -4.35618 z"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="17.4" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle32" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="13.8" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle34" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="10.1" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle36" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="17.4" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle38" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="13.8" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle40" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="10.1" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle42" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="17.4" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle44" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="13.8" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle46" Fill="#000000" StrokeThickness="0.0644405"/>
+  <Ellipse xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="10.1" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle48" Fill="#000000" StrokeThickness="0.0644405"/>
+</Canvas>

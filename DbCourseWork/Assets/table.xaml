@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="Layer_1" Width="22" Height="19.937902" Canvas.Left="0" Canvas.Top="0">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources/>
+  <!--Unknown tag: metadata-->
+  <!--Unknown tag: sodipodi:namedview-->
+  <Canvas Name="Color">
+    <Canvas.RenderTransform>
+      <TranslateTransform X="-245" Y="-246.03105"/>
+    </Canvas.RenderTransform>
+    <Canvas Name="g21">
+      <Canvas Name="g19"/>
+    </Canvas>
+    <Canvas Name="g25"/>
+    <Canvas Name="g29">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path27" Fill="#000000" Data="M 401.8 160 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g33">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path31" Fill="#000000" Data="M 401.8 288 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g37">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path35" Fill="#000000" Data="M 401.8 416 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g41">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path39" Fill="#000000" Data="m 241.8 145.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+    </Canvas>
+    <Canvas Name="g45">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path43" Fill="#000000" Data="m 241.8 273.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+    </Canvas>
+    <Canvas Name="g49">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path47" Fill="#000000" Data="m 241.8 401.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+    </Canvas>
+    <Canvas Name="g53">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path51" Fill="#000000" Data="M 145.8 160 H 110.2 C 102.3 160 96 153.6 96 145.8 V 110.2 C 96 102.3 102.4 96 110.2 96 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g57">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path55" Fill="#000000" Data="m 128 145.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 C 102.3 96 96 102.4 96 110.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0 -14.2 -6.4 -14.2 -14.2 z"/>
+    </Canvas>
+    <Canvas Name="g61">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path59" Fill="#000000" Data="M 145.8 285.8 H 110.2 C 102.3 285.8 96 279.4 96 271.6 V 236 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.9 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g65">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path63" Fill="#000000" Data="M 128 271.6 V 236 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0 -14.2 -6.3 -14.2 -14.2 z"/>
+    </Canvas>
+    <Canvas Name="g69">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path67" Fill="#000000" Data="m 145.8 411.7 h -35.6 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+    </Canvas>
+    <Canvas Name="g73">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path71" Fill="#000000" Data="m 128 397.4 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0.1 -14.2 -6.3 -14.2 -14.2 z"/>
+    </Canvas>
+  </Canvas>
+  <Canvas Name="g100">
+    <Canvas.RenderTransform>
+      <MatrixTransform Matrix="0.06444054 0 0 0.06444054 -5.4967781 -6.5278267"/>
+    </Canvas.RenderTransform>
+    <Canvas Name="g78">
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path76" Fill="#000000" Data="m 145.8 186.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+    </Canvas>
+    <Canvas Name="g82">
+      <Canvas.RenderTransform>
+        <TranslateTransform X="0" Y="16"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path80" Fill="#000000" Data="M 401.8 170.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 106.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 H 224 Z"/>
+    </Canvas>
+    <Canvas Name="g86">
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path84" Fill="#000000" Data="m 145.8 298.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+    </Canvas>
+    <Canvas Name="g90">
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path88" Fill="#000000" Data="M 401.8 298.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 234.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+    </Canvas>
+    <Canvas Name="g94">
+      <Canvas.RenderTransform>
+        <TranslateTransform X="0" Y="-16"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path92" Fill="#000000" Data="m 145.8 426.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+    </Canvas>
+    <Canvas Name="g98">
+      <Canvas.RenderTransform>
+        <TranslateTransform X="0" Y="-16"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path96" Fill="#000000" Data="M 401.8 426.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 362.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+    </Canvas>
+  </Canvas>
+</Canvas>

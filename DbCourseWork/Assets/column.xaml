@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="Layer_1" Width="22" Height="22" Canvas.Left="0" Canvas.Top="0">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources/>
+  <!--Unknown tag: metadata-->
+  <!--Unknown tag: sodipodi:namedview-->
+  <Canvas Name="BG">
+    <Canvas.RenderTransform>
+      <TranslateTransform X="-245" Y="-263.44993"/>
+    </Canvas.RenderTransform>
+  </Canvas>
+  <Canvas Name="Color">
+    <Canvas.RenderTransform>
+      <MatrixTransform Matrix="0.64465657 0 0 0.45694959 -154.03208 -114.40975"/>
+    </Canvas.RenderTransform>
+    <Canvas Name="g25">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444052 0 0 0.06389864 239.50322 257.29641"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path23" Fill="#000000" Data="m 416 229.3 v 78.2 c 0 15.7 -12.7 28.4 -28.4 28.4 H 124.4 C 108.7 335.9 96 323.2 96 307.5 v -78.2 c 0 -15.7 12.7 -28.4 28.4 -28.4 h 263.1 c 15.8 0 28.5 12.7 28.5 28.4 z"/>
+    </Canvas>
+    <Canvas Name="g29">
+      <Canvas.RenderTransform>
+        <MatrixTransform Matrix="0.06444052 0 0 0.06389864 239.50322 257.29641"/>
+      </Canvas.RenderTransform>
+      <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path27" Fill="#000000" Data="m 128 307.6 v -78.2 c 0 -15.7 12.7 -28.4 28.4 -28.4 h -32 C 108.7 201 96 213.7 96 229.4 v 78.2 c 0 15.7 12.7 28.4 28.4 28.4 h 32 C 140.7 336 128 323.3 128 307.6 Z"/>
+    </Canvas>
+  </Canvas>
+  <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path32" Fill="#000000" StrokeThickness="0.0348276" Data="M 17.056826 13.28485 H 4.9431743 c -0.5691222 0 -1.0343966 -0.327021 -1.0343966 -0.727039 V 9.4423288 c 0 -0.4000182 0.4652744 -0.7270388 1.0343966 -0.7270388 H 17.056826 c 0.569122 0 1.034396 0.3270206 1.034396 0.7270388 v 3.1154822 c 0 0.400018 -0.465274 0.727039 -1.034396 0.727039 z M 4.9431743 9.3401366 c -0.083083 0 -0.1495539 0.046719 -0.1495539 0.1051121 v 3.1154823 c 0 0.05839 0.066471 0.105112 0.1495539 0.105112 H 17.056826 c 0.08308 0 0.149553 -0.04672 0.149553 -0.105112 V 9.4423288 c 0 -0.058394 -0.06647 -0.1051121 -0.149553 -0.1051121 H 4.9431743 Z"/>
+</Canvas>

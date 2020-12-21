@@ -40,7 +40,7 @@
         <PasswordBox Name="PasswordBox" Grid.Row="4" HorizontalAlignment="Right"
                      ToolTip="PasswordBox" Width="200"/>
 
-        <WrapPanel Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <WrapPanel Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Button Name="AcceptButton" IsDefault="True" Click="Accept_Click" 
                     Height="35" Width="90" Margin="0 0 20 0">OК</Button>
             <Button IsCancel="True" Height="35" Width="90">Отмена</Button>

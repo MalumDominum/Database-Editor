@@ -22,6 +22,202 @@
         <GradientStop Color="#FF8DDFFB" Offset="0" />
     </RadialGradientBrush>
 
+    <Canvas x:Key="Server" x:Name="Server" Width="22" Height="22" Canvas.Left="0" Canvas.Top="0">
+        <Canvas.RenderTransform>
+            <TranslateTransform X="0" Y="0"/>
+        </Canvas.RenderTransform>
+        <Canvas.Resources/>
+        <Path Fill="#F3F3F1" StrokeThickness="0.0644405" Data="M 21.31049 7.56532 H 0.68951 V 2.52607 c 0 -1.01172 0.8184 -1.83011 1.83012 -1.83011 h 16.9543 c 1.01172 0 1.83011 0.81839 1.83011 1.83011 v 5.03925 z"/>
+        <Path Fill="#34E9FA" StrokeThickness="0.0644405" Data="m 0.68951 7.56532 h 20.62098 v 6.8758 H 0.68951 Z"/>
+        <Path Fill="#F3F3F1" StrokeThickness="0.0644405" Data="M 19.48037 21.31049 H 2.51963 c -1.01172 0 -1.83012 -0.8184 -1.83012 -1.83012 v -5.03925 h 20.62098 v 5.03925 c 0 1.01172 -0.8184 1.83012 -1.83012 1.83012 z"/>
+        <Path Fill="#D5DBE1" StrokeThickness="0.0644405" Data="M 4.58172 0.68951 H 2.51963 c -1.01172 0 -1.83012 0.8184 -1.83012 1.83012 v 5.03925 h 2.0621 V 2.51963 c 0 -1.01172 0.8184 -1.83012 1.83011 -1.83012 z"/>
+        <Path Fill="#D5DBE1" StrokeThickness="0.0644405" Data="m 2.75161 19.48037 v -5.03925 h -2.0621 v 5.03925 c 0 1.01172 0.8184 1.83012 1.83012 1.83012 h 2.06209 c -1.01171 0 -1.83011 -0.8184 -1.83011 -1.83012 z"/>
+        <Path Fill="#34E9FA" StrokeThickness="0.0644405" Data="m 0.68951 7.56532 h 2.0621 v 6.8758 h -2.0621 z"/>
+        <Path Fill="#000000" StrokeThickness="0.0644405" Data="M 21.31049 8.24839 H 0.68951 C 0.30931 8.24839 0 7.93907 0 7.55888 V 2.51963 C 0 1.12771 1.12771 0 2.51963 0 h 16.9543 c 1.39192 0 2.51963 1.12771 2.51963 2.51963 v 5.03925 c 0.006 0.38664 -0.30287 0.68951 -0.68307 0.68951 z M 1.37903 6.87581 H 20.62742 V 2.51963 c 0 -0.63152 -0.51553 -1.14705 -1.14705 -1.14705 H 2.51963 c -0.63152 0 -1.14705 0.51553 -1.14705 1.14705 v 4.35618 z"/>
+        <Path Fill="#000000" StrokeThickness="0.0644405" Data="M 21.31049 15.12419 H 0.68951 C 0.30931 15.12419 0 14.81488 0 14.43468 V 7.56532 C 0 7.18512 0.30931 6.87581 0.68951 6.87581 H 21.31049 C 21.69069 6.87581 22 7.18512 22 7.56532 v 6.8758 c 0 0.37376 -0.30931 0.68307 -0.68951 0.68307 z M 1.37903 13.75161 H 20.62742 V 8.25483 H 1.37903 Z"/>
+        <Path Fill="#000000" StrokeThickness="0.0644405" Data="M 19.48037 22 H 2.51963 C 1.12771 22 0 20.87229 0 19.48037 v -5.03925 c 0 -0.38019 0.30931 -0.68951 0.68951 -0.68951 h 20.62098 c 0.3802 0 0.68951 0.30932 0.68951 0.68951 v 5.03925 C 22 20.86585 20.86585 22 19.48037 22 Z M 1.37903 15.12419 v 4.35618 c 0 0.63152 0.51552 1.14705 1.14704 1.14705 h 16.9543 c 0.63152 0 1.14705 -0.51553 1.14705 -1.14705 v -4.35618 z"/>
+        <Ellipse Canvas.Left="17.4" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle32" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="13.8" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle34" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="10.1" Canvas.Top="17.4" Width="1.8" Height="1.8" Name="circle36" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="17.4" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle38" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="13.8" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle40" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="10.1" Canvas.Top="10.1" Width="1.8" Height="1.8" Name="circle42" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="17.4" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle44" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="13.8" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle46" Fill="#000000" StrokeThickness="0.0644405"/>
+        <Ellipse Canvas.Left="10.1" Canvas.Top="3.7" Width="1.8" Height="1.8" Name="circle48" Fill="#000000" StrokeThickness="0.0644405"/>
+    </Canvas>
+
+    <Canvas x:Key="Database" x:Name="Database" Width="22" Height="25" Canvas.Left="0" Canvas.Top="0">
+        <Canvas.RenderTransform>
+            <TranslateTransform X="0" Y="0"/>
+        </Canvas.RenderTransform>
+        <Canvas.Resources/>
+        <Path Fill="#1795E3" StrokeThickness="0.0686933" Data="m 21.31049 21.87317 c 0 1.29614 -4.61395 2.34329 -10.31049 2.34329 -5.69654 0 -10.31049 -1.04715 -10.31049 -2.34329 v -6.24633 h 20.62098 z"/>
+        <Path Fill="#F3F3F1" StrokeThickness="0.0686933" Data="m 21.31049 15.62684 c 0 1.29613 -4.61395 2.34329 -10.31049 2.34329 -5.69654 0 -10.31049 -1.04716 -10.31049 -2.34329 V 9.38049 h 20.62098 z"/>
+        <Path Fill="#34E9FA" StrokeThickness="0.0686933" Data="m 21.31049 9.37316 c 0 1.29615 -4.61395 2.3433 -10.31049 2.3433 -5.69654 0 -10.31049 -1.04715 -10.31049 -2.3433 V 3.12683 h 20.62098 z"/>
+        <Ellipse Canvas.Left="0.7" Width="20.6" Canvas.Top="0.8" Height="4.7" Fill="#F3F3F1" StrokeThickness="0.0686933"/>
+        <Path Fill="#D5DBE1" StrokeThickness="0.0686933" Data="M 2.75161 15.62684 V 9.38049 h -2.0621 v 6.24635 c 0 1.29613 4.61395 2.34329 10.31049 2.34329 0.34798 0 0.68951 -0.007 1.03105 -0.0147 C 6.81781 17.83826 2.75161 16.84237 2.75161 15.62679 Z"/>
+        <Path Fill="#D5DBE1" StrokeThickness="0.0686933" Data="m 2.75161 3.12683 c 0 -1.21558 4.0662 -2.21148 9.27944 -2.32865 C 11.68951 0.79118 11.34798 0.78348 11 0.78348 c -5.69654 0 -10.31049 1.04716 -10.31049 2.3433 0 1.29613 4.61395 2.3433 10.31049 2.3433 0.34798 0 0.68951 -0.007 1.03105 -0.0147 C 6.81781 5.33821 2.75161 4.34231 2.75161 3.12673 Z"/>
+        <Path Fill="#3B8FBF" StrokeThickness="0.0686933" Data="m 2.75161 21.87317 v -5.60193 l -2.0621 -0.6444 v 6.24633 c 0 1.29614 4.61395 2.34329 10.31049 2.34329 0.34798 0 0.68951 -0.007 1.03105 -0.0147 C 6.81781 24.0846 2.75161 23.0887 2.75161 21.87312 Z"/>
+        <Path Fill="#44C7C7" StrokeThickness="0.0686933" Data="M 2.75161 9.37316 V 4.68658 L 0.68951 3.12683 v 6.24633 c 0 1.29615 4.61395 2.3433 10.31049 2.3433 0.34798 0 0.68951 -0.007 1.03105 -0.0147 C 6.81781 11.59192 2.75161 10.5887 2.75161 9.37311 Z"/>
+        <Path Fill="#000000" StrokeThickness="0.0686933" Data="M 11 6.25366 C 9.87229 6.25366 0 6.16586 0 3.12683 0 0.08787 9.87229 0 11 0 12.12771 0 22 0.0878 22 3.12683 22 6.16578 12.12771 6.25366 11 6.25366 Z M 1.45636 3.12683 C 2.12654 3.71998 5.34857 4.68658 11 4.68658 c 5.65144 0 8.87346 -0.97393 9.54364 -1.55975 C 19.87346 2.53369 16.65144 1.56707 11 1.56707 c -5.65143 0 -8.87346 0.96662 -9.54364 1.55976 z"/>
+        <Path Fill="#000000" StrokeThickness="0.0686933" Data="M 11 12.5 C 9.87229 12.5 0 12.4122 0 9.37316 h 1.37258 c 0 -0.0659 -0.0193 -0.10983 -0.0258 -0.11715 0.32864 0.57117 3.58934 1.68423 9.64675 1.68423 6.05741 0 9.3181 -1.11306 9.64675 -1.68423 -0.006 0.0147 -0.0258 0.0585 -0.0258 0.11715 h 1.37258 C 22 12.41212 12.12771 12.5 11 12.5 Z"/>
+        <Path Fill="#000000" StrokeThickness="0.0686933" Data="m 11 18.74634 c -1.12771 0 -11 -0.0878 -11 -3.12683 h 1.37258 c 0 -0.0659 -0.0193 -0.10984 -0.0258 -0.11717 0.32864 0.57118 3.58934 1.68424 9.64675 1.68424 6.05741 0 9.3181 -1.11306 9.64675 -1.68424 -0.006 0.0147 -0.0258 0.0586 -0.0258 0.11717 h 1.37258 c 0.0129 3.03896 -9.8594 3.12683 -10.98711 3.12683 z"/>
+        <Path Fill="#000000" StrokeThickness="0.0686933" Data="M 11 25 C 9.87229 25 0 24.9122 0 21.87317 V 3.12683 H 1.37258 V 21.7853 c 0.4382 0.5785 3.69245 1.64762 9.62098 1.64762 5.92853 0 9.18277 -1.06912 9.62097 -1.64762 V 3.12683 c 0 -0.43205 0.30931 -0.78354 0.68951 -0.78354 0.3802 0 0.68952 0.35149 0.68952 0.78354 V 21.87317 C 21.99956 24.91213 12.12771 25 11 25 Z"/>
+        <Ellipse Canvas.Left="3.7" Width="1.8" Canvas.Top="13.5" Height="2.1" Fill="#000000" StrokeThickness="0.0686933"/>
+        <Ellipse Canvas.Left="3.7" Width="1.8" Canvas.Top="7.3" Height="2.1" Fill="#000000" StrokeThickness="0.0686933"/>
+        <Ellipse Canvas.Left="3.7" Width="1.8" Canvas.Top="19.8" Height="2.1" Fill="#000000" StrokeThickness="0.0686933"/>
+    </Canvas>
+    
+    <Canvas x:Key="Table" x:Name="Table" Width="22" Height="19.937902" Canvas.Left="0" Canvas.Top="0">
+        <Canvas.RenderTransform>
+            <TranslateTransform X="0" Y="0"/>
+        </Canvas.RenderTransform>
+        <Canvas.Resources/>
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TranslateTransform X="-245" Y="-246.03105"/>
+            </Canvas.RenderTransform>
+            <Canvas>
+                <Canvas/>
+            </Canvas>
+            <Canvas/>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#F3F3F1" Data="M 401.8 160 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#F3F3F1" Data="M 401.8 288 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#F3F3F1" Data="M 401.8 416 H 224 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 177.8 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#D5DBE1" Data="m 241.8 145.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#D5DBE1" Data="m 241.8 273.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#D5DBE1" Data="m 241.8 401.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.9 0 -14.2 -6.4 -14.2 -14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#34E9FA" Data="M 145.8 160 H 110.2 C 102.3 160 96 153.6 96 145.8 V 110.2 C 96 102.3 102.4 96 110.2 96 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 240.53427"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#3B8FBF" Data="m 128 145.8 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 C 102.3 96 96 102.4 96 110.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0 -14.2 -6.4 -14.2 -14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#34E9FA" Data="M 145.8 285.8 H 110.2 C 102.3 285.8 96 279.4 96 271.6 V 236 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.9 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 239.50322"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#3B8FBF" Data="M 128 271.6 V 236 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0 -14.2 -6.3 -14.2 -14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#34E9FA" Data="m 145.8 411.7 h -35.6 c -7.9 0 -14.2 -6.4 -14.2 -14.2 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h 35.6 c 7.9 0 14.2 6.4 14.2 14.2 v 35.6 c 0 7.8 -6.4 14.2 -14.2 14.2 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444054 0 0 0.06444054 239.50322 238.47217"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#3B8FBF" Data="m 128 397.4 v -35.6 c 0 -7.9 6.4 -14.2 14.2 -14.2 h -32 c -7.9 0 -14.2 6.4 -14.2 14.2 v 35.6 c 0 7.9 6.4 14.2 14.2 14.2 h 32 c -7.8 0.1 -14.2 -6.3 -14.2 -14.2 z"/>
+            </Canvas>
+        </Canvas>
+        <Canvas>
+            <Canvas.RenderTransform>
+                <MatrixTransform Matrix="0.06444054 0 0 0.06444054 -5.4967781 -6.5278267"/>
+            </Canvas.RenderTransform>
+            <Canvas>
+                <Path Fill="#000000" Data="m 145.8 186.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="0" Y="16"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#000000" Data="M 401.8 170.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 106.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 H 224 Z"/>
+            </Canvas>
+            <Canvas Name="g86">
+                <Path Fill="#000000" Data="m 145.8 298.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+            </Canvas>
+            <Canvas>
+                <Path Fill="#000000" Data="M 401.8 298.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 234.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="0" Y="-16"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#000000" Data="m 145.8 426.7 h -35.6 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 35.6 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z m -35.6 -64 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 35.6 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="0" Y="-16"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#000000" Data="M 401.8 426.7 H 224 c -13.7 0 -24.9 -11.2 -24.9 -24.9 v -35.6 c 0 -13.7 11.2 -24.9 24.9 -24.9 h 177.8 c 13.7 0 24.9 11.2 24.9 24.9 v 35.6 c 0 13.7 -11.2 24.9 -24.9 24.9 z M 224 362.7 c -2 0 -3.6 1.6 -3.6 3.6 v 35.6 c 0 2 1.6 3.6 3.6 3.6 h 177.8 c 2 0 3.6 -1.6 3.6 -3.6 v -35.6 c 0 -2 -1.6 -3.6 -3.6 -3.6 z"/>
+            </Canvas>
+        </Canvas>
+    </Canvas>
+
+    <Canvas x:Key="Column" x:Name="Column"  Width="22" Height="22" Canvas.Left="0" Canvas.Top="0">
+        <Canvas.RenderTransform>
+            <TranslateTransform X="0" Y="0"/>
+        </Canvas.RenderTransform>
+        <Canvas.Resources/>
+        <Canvas>
+            <Canvas.RenderTransform>
+                <TranslateTransform X="-245" Y="-263.44993"/>
+            </Canvas.RenderTransform>
+        </Canvas>
+        <Canvas>
+            <Canvas.RenderTransform>
+                <MatrixTransform Matrix="0.64465657 0 0 0.45694959 -154.03208 -114.40975"/>
+            </Canvas.RenderTransform>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444052 0 0 0.06389864 239.50322 257.29641"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#34E9FA" Data="m 416 229.3 v 78.2 c 0 15.7 -12.7 28.4 -28.4 28.4 H 124.4 C 108.7 335.9 96 323.2 96 307.5 v -78.2 c 0 -15.7 12.7 -28.4 28.4 -28.4 h 263.1 c 15.8 0 28.5 12.7 28.5 28.4 z"/>
+            </Canvas>
+            <Canvas>
+                <Canvas.RenderTransform>
+                    <MatrixTransform Matrix="0.06444052 0 0 0.06389864 239.50322 257.29641"/>
+                </Canvas.RenderTransform>
+                <Path Fill="#3B8FBF" Data="m 128 307.6 v -78.2 c 0 -15.7 12.7 -28.4 28.4 -28.4 h -32 C 108.7 201 96 213.7 96 229.4 v 78.2 c 0 15.7 12.7 28.4 28.4 28.4 h 32 C 140.7 336 128 323.3 128 307.6 Z"/>
+            </Canvas>
+        </Canvas>
+        <Path Fill="#000000" StrokeThickness="0.0348276" Data="M 17.056826 13.28485 H 4.9431743 c -0.5691222 0 -1.0343966 -0.327021 -1.0343966 -0.727039 V 9.4423288 c 0 -0.4000182 0.4652744 -0.7270388 1.0343966 -0.7270388 H 17.056826 c 0.569122 0 1.034396 0.3270206 1.034396 0.7270388 v 3.1154822 c 0 0.400018 -0.465274 0.727039 -1.034396 0.727039 z M 4.9431743 9.3401366 c -0.083083 0 -0.1495539 0.046719 -0.1495539 0.1051121 v 3.1154823 c 0 0.05839 0.066471 0.105112 0.1495539 0.105112 H 17.056826 c 0.08308 0 0.149553 -0.04672 0.149553 -0.105112 V 9.4423288 c 0 -0.058394 -0.06647 -0.1051121 -0.149553 -0.1051121 H 4.9431743 Z"/>
+    </Canvas>
 
     <Geometry x:Key="addStyle0">F1 M 22,12L 26,12L 26,22L 36,22L 36,26L 26,26L 26,36L 22,36L 22,26L 12,26L 12,22L 22,22L 22,12 Z</Geometry>
 

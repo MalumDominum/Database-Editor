@@ -50,10 +50,40 @@
             </Grid>
             <DatePicker x:Name="FilterFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
             <DatePicker x:Name="SecondFirstDate" Margin="10 0 0 0" Height="26" Width="95"/>
-            <Button x:Name="ReturnChangesButton" Content="Return Changes"
+            <ComboBox x:Name="ColumnsComboBox" Margin="10 0 0 0" Height="30" Width="94" IsEnabled="False"/>
+
+            <Button x:Name="ReturnChangesButton" Content="Return Changes" IsEnabled="False"
                     Click="ReturnChangesButton_OnClick" Margin="10 10 0 10" Width="90"></Button>
-            <Button x:Name="SaveChangesButton" Content="Save Changes" Width="90"
+            <Button x:Name="SaveChangesButton" Content="Save Changes" Width="90" IsEnabled="False"
                     Click="SaveChangesButton_OnClick" Margin="10 10 0 10"></Button>
+
+            <StackPanel Margin="10 2 0 0">
+                <CheckBox x:Name="PaginationComboBox" IsEnabled="False" 
+                          Checked="PaginationComboBox_Checked" Unchecked="PaginationComboBox_OnUnchecked"
+                          Height="17" Content="Pagination" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <RepeatButton x:Name="PaginationPreviousButton" IsEnabled="False"
+                            Width="25" Height="25" Content="❮" FontSize="15" FontWeight="Black" VerticalContentAlignment="Top"
+                            Delay="500" Click="PaginationPreviousButton_Click"/>
+
+                    <TextBox x:Name="PageTextBox"  IsEnabled="False" Height="25" Width="25" FontSize="10"
+                             Margin="10 0 5 0" TextChanged="PageTextBox_TextChanged"/>
+                    <TextBlock x:Name="InclinedTextBlock" Foreground="{StaticResource DisabledForeground2}"
+                               FontSize="16">/</TextBlock>
+                    <TextBlock x:Name="PageCountTextBlock" Foreground="{StaticResource DisabledForeground2}"
+                               FontSize="16" Margin="0 0 10 0">0</TextBlock>
+
+                    <RepeatButton x:Name="PaginationNextButton" IsEnabled="False"
+                            Width="25" Height="25" Content="❯" FontSize="15" FontWeight="Black" VerticalContentAlignment="Top"
+                            Delay="500" Click="PaginationNextButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10 2 0 0">
+                <TextBlock x:Name="RowsPerPageTextBlock" Foreground="{StaticResource DisabledForeground2}"
+                           FontSize="12">Rows per page</TextBlock>
+                <TextBox x:Name="RowsPerPageTextBox" Height="25" Width="50" FontSize="12" Margin="0 2 0 0" IsEnabled="False"
+                         HorizontalContentAlignment="Center" TextChanged="RowsPerPageTextBox_TextChanged">22</TextBox>
+            </StackPanel>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Margin="5 3 5 3" >
             <StatusBarItem Content="Столбец: 54"/>

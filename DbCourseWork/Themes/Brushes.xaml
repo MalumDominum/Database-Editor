@@ -5,7 +5,7 @@
 
     <!-- Brushes -->
 
-    <SolidColorBrush x:Key="ControlForeground" Color="#FF32EBFB" />
+    <SolidColorBrush x:Key="ControlForeground" Color="#34E9FA" />
     <SolidColorBrush x:Key="ControlForegroundWhite" Color="#FFEEEFFF" />
     <SolidColorBrush x:Key="BorderBrushVisual" Color="Transparent"/>
     <SolidColorBrush x:Key="ControlPressedVisualBrush" Color="Transparent"/>
@@ -47,7 +47,7 @@
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="ControlActiveBorderBrush" StartPoint="0,0.5" EndPoint="1,0.5">
-        <GradientStop Color="#FF1D83BE" Offset="0.204" />
+        <GradientStop Color="#3B8FBF" Offset="0.204" />
         <GradientStop Color="#FF1ECDA7" Offset="0.864" />
     </LinearGradientBrush>
 
@@ -108,16 +108,16 @@
 
     <LinearGradientBrush x:Key="ScrollBarThumbBackground" EndPoint="1,1" StartPoint="0,0">
         <GradientStop Color="#FF97E9E9" Offset="1"/>
-        <GradientStop Color="#FF2CC8C8"/>
+        <GradientStop Color="#44C7C7"/>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="ScrollBarThumbPressedBackground" EndPoint="1,1" StartPoint="0,0">
         <GradientStop Color="#FF439797" Offset="1"/>
-        <GradientStop Color="#FF2CC8C8"/>
+        <GradientStop Color="#44C7C7"/>
     </LinearGradientBrush>
 
     <SolidColorBrush x:Key="NormalBrushScrollBar" Color="#FFCCCCCC"/>
-    <SolidColorBrush x:Key="HoverBrushScrollBar" Color="#FF2CC8C8"/>
+    <SolidColorBrush x:Key="HoverBrushScrollBar" Color="#44C7C7"/>
     <SolidColorBrush x:Key="DisabledBrushScrollBar" Color="#FFAAAAAA"/>
 
     <LinearGradientBrush x:Key="IndeterminateBrushProgressbar" EndPoint="0,1" MappingMode="Absolute" SpreadMethod="Repeat" StartPoint="20,1">
@@ -200,7 +200,7 @@
         <GradientStop Color="#FF525252" Offset="1"/>
     </LinearGradientBrush>
 
-    <SolidColorBrush x:Key="SliderSelectRange" Color="#FF0A8FE4"/>
+    <SolidColorBrush x:Key="SliderSelectRange" Color="#1795E3"/>
 
     <!-- Calendar -->
     <LinearGradientBrush x:Key="HoverBackgroundCalendar" EndPoint="0,1" StartPoint="0,0">
@@ -238,10 +238,10 @@
     <!-- Colors -->
     <Color x:Key="DisabledForeground">#FF474747</Color>
     <Color x:Key="DisabledForeground3">#FF171717</Color>
-    <Color x:Key="ColorForeground">#FF32EBFB</Color>
+    <Color x:Key="ColorForeground">#34E9FA</Color>
     <Color x:Key="ColorForegroundWhite">#FFEEEFFF</Color>
     <Color x:Key="BorderBrushSolidColor">#FF686868</Color>
-    <Color x:Key="BorderBrushGradientColor1">#FF1D83BE</Color>
+    <Color x:Key="BorderBrushGradientColor1">#3B8FBF</Color>
     <Color x:Key="BorderBrushGradientColor2">#FF1ECDA7</Color>
     <Color x:Key="BorderLightBrushGradientColor1">#FF878585</Color>
     <Color x:Key="BorderLightBrushGradientColor2">#FF525252</Color>
