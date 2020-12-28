@@ -12,20 +12,20 @@ using NpgsqlTypes;
 
 namespace DbCourseWork
 {
-    public class PostgreCommunication
+    public class NpgsqlCommunication
     {
         public DataSet Ds { get; }
         private NpgsqlDataAdapter Adapter { get; set; }
         private NpgsqlConnectionStringBuilder ConnectionBuilder { get; set; }
 
-        public PostgreCommunication(string dbName, string userId, string server, string port, string password)
+        public NpgsqlCommunication(string dbName, string userId, string server, string port, string password)
         {
             ConnectionBuilder = CreateConnectionStringBuilder(server, port, dbName, userId, password);
 
             Ds = new DataSet(dbName);
         }
 
-        public PostgreCommunication(ConnectionStringSettings connectionString)
+        public NpgsqlCommunication(ConnectionStringSettings connectionString)
         {
             ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString.ConnectionString);
 
@@ -45,7 +45,7 @@ namespace DbCourseWork
             return connectionBuilder;
         }
 
-        public PostgreCommunication(string connectionString, string dbName)
+        public NpgsqlCommunication(string connectionString, string dbName)
         {
             ConnectionBuilder = new NpgsqlConnectionStringBuilder(connectionString);
 
@@ -130,7 +130,7 @@ namespace DbCourseWork
                     foreach (DataColumn column in table.Columns)
                     {
                         var type = column.DataType;
-                        insertCommand.Parameters.Add("@" + column.ColumnName, NpgsqlHelper.GetDbType(column.DataType),
+                        insertCommand.Parameters.Add("@" + column.ColumnName, NpgsqlHelper.PostgresTypeFromType(column.DataType),
                             column.MaxLength, column.ColumnName);
                     }
 

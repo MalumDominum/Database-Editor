@@ -13,11 +13,11 @@ using Npgsql;
 
 namespace DbCourseWork
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         enum SqlServer { MsSql, PostgreSql }
         public static DataGrid CustomGrid { get; private set; }
-        private static Dictionary<string, PostgreCommunication> PostgreCommunications { get; } = new Dictionary<string, PostgreCommunication>();
+        private static Dictionary<string, NpgsqlCommunication> PostgreCommunications { get; } = new Dictionary<string, NpgsqlCommunication>();
         private static Dictionary<string, MsCommunication> MsCommunications { get; } = new Dictionary<string, MsCommunication>();
         private static SqlServer CurrentServer { get; set; }
         private static DataTable CurrentTable { get; set; }
@@ -32,7 +32,7 @@ namespace DbCourseWork
                 switch (connectionString.ProviderName)
                 {
                     case "PostgreSQL":
-                        PostgreCommunications.Add(connectionString.Name, new PostgreCommunication(connectionString));
+                        PostgreCommunications.Add(connectionString.Name, new NpgsqlCommunication(connectionString));
                         PostgreCommunications[connectionString.Name].FillDs();
                         BuildTreeView(DatabasesTreeView, PostgreCommunications[connectionString.Name]);
                         break;
@@ -55,16 +55,6 @@ namespace DbCourseWork
             PostgreCommunications[CurrentTable.DataSet.DataSetName].ShowOnDataGridAsync(CurrentTable).GetAwaiter();
         }
 
-        private void ArrowPressed_OnKeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void TreeViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void AddDb_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -73,7 +63,7 @@ namespace DbCourseWork
                 var addDbWindow = new AddDbWindow();
                 if (addDbWindow.ShowDialog() == true)
                 {
-                    connectionBuilder = PostgreCommunication.CreateConnectionStringBuilder(
+                    connectionBuilder = NpgsqlCommunication.CreateConnectionStringBuilder(
                         addDbWindow.Server, addDbWindow.Port, addDbWindow.Database,
                         addDbWindow.User, addDbWindow.Password);
 
@@ -94,7 +84,7 @@ namespace DbCourseWork
                 else return;
 
                 var communication =
-                    new PostgreCommunication(addDbWindow.Database, addDbWindow.User,
+                    new NpgsqlCommunication(addDbWindow.Database, addDbWindow.User,
                         addDbWindow.Server, addDbWindow.Port, addDbWindow.Password);
 
                 // Create recording in the DbCourseWork.exe.Config
@@ -136,7 +126,7 @@ namespace DbCourseWork
 
         private void BuildTreeView(TreeView treeView, MsCommunication communication) { }
 
-        private void BuildTreeView(TreeView treeView, PostgreCommunication communication)
+        private void BuildTreeView(TreeView treeView, NpgsqlCommunication communication)
         {
             var dbContextMenu = new ContextMenu();
             var dbRefreshItem = new MenuItem { Header = "Refresh" };
@@ -291,8 +281,6 @@ namespace DbCourseWork
 
         private void View(object sender, bool useLimit = false, int limit = 0, bool desc = false)
         {
-            EnableElementsOnView();
-
             if (!(sender is MenuItem menuItem)) return;
 
             if (!(menuItem.Parent is ContextMenu contextMenu)) return;
@@ -304,6 +292,8 @@ namespace DbCourseWork
             if (!(viewItem.Parent is TreeViewItem parentView)) return;
 
             if (!(parentView.Header is StackPanel parentStack)) return;
+
+            EnableElementsOnView();
 
             var dbHeader = (TextBlock) parentStack.Children[1];
             var tableHeader = (TextBlock) stack.Children[1];
@@ -670,7 +660,7 @@ namespace DbCourseWork
             try
             {
                 var selectedItem = ((DataRowView)DataTableGrid.SelectedItem).Row;
-                SelectedRowBarItem.Content = "Selected row: " + selectedItem.Table.Rows.IndexOf(selectedItem);
+                SelectedRowBarItem.Content = "Selected row: " + (selectedItem.Table.Rows.IndexOf(selectedItem) + 1);
             }
             catch
             {

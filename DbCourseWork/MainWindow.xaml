@@ -11,7 +11,6 @@
         MinHeight="350" MinWidth="700"
         WindowState="Maximized"
         Name="MWindow"
-        KeyDown="ArrowPressed_OnKeyDown"
         ShowInTaskbar="True"
         WindowStartupLocation="Manual" Top="0" Left="0"
         Background="#333"

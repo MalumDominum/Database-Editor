@@ -90,7 +90,7 @@ namespace DbCourseWork
             };
         }
 
-        public static NpgsqlDbType GetDbType(Type giveType)
+        public static NpgsqlDbType PostgresTypeFromType(Type giveType)
         {
             giveType = Nullable.GetUnderlyingType(giveType) ?? giveType;
 
@@ -100,9 +100,9 @@ namespace DbCourseWork
             throw new ArgumentException($"{giveType.FullName} is not a supported .NET class");
         }
 
-        public static NpgsqlDbType GetDbType<T>()
+        public static NpgsqlDbType PostgresTypeFromType<T>()
         {
-            return GetDbType(typeof(T));
+            return PostgresTypeFromType(typeof(T));
         }
 
         public static int GetMaxLength(string typeString)
